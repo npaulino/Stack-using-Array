@@ -1,0 +1,75 @@
+using System.Console;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Stack
+{
+
+    // implementing stack using array
+    public class StackArray
+    {
+        //declaration
+        private string[] data; 
+        private int top;
+        private int max;
+
+       
+        public StackArray(int size)
+        {
+            //user assignment of empty array
+            data = new string[size];
+            top = -1;
+            max = size;
+        }
+
+        //inserting an item 
+        public void Push(string item)
+        {
+            if(top == max - 1)
+            {
+                S.WriteLine("WARNING: Stack Overflow");
+                return;
+            }
+            else
+            {
+                data[++top] = item;
+            }
+        }
+
+        //deleting an item
+        public string Pop()
+        {
+            if(top == -1)
+            {
+                S.WriteLine("WARNING: Stack Underflow");
+                return "";
+            }
+            else
+            {
+                S.WriteLine("{0} popped from stack ", data[top]);
+                return data[top--];
+            }
+        }
+
+
+        public void Print()
+        {
+            if(top == -1)
+            {
+                S.WriteLine("Stack is Empty");
+                return;
+            }
+            else
+            {
+                for(int i = top; i>=0 ;i--)
+                {
+                    S.WriteLine("#{0} is {1} pushed into stack", i + 1, data[i]);
+                }
+            }
+        }
+
+       
+
+    }
